@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>留言板 -CKEditor 範例-</title>
+    <style>
+      html {
+        background-color: rgb(230, 246, 255);
+      }
+      body {
+        width: calc(100% - 80px);
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+      }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        margin: 20px 0 0 0;
+      }
+      hr {
+        margin: 0;
+        width: 100%;
+      }
+      .ck-editor {
+        width: 100% !important;
+      }
+      .ck-editor__editable {
+        height: 200px !important;
+      }
+
+      .button_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .button_container > p {
+        margin: 0;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      #my_post_container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .my_post {
+        width: calc(100% - 20px);
+        background-color: rgb(230, 246, 255);
+        border-radius: 8px;
+        box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+      }
+
+      .my_post_time {
+        font-size: 12px;
+        margin: 0;
+      }
+
+      .my_post_time > hr {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>留言板</h1>
+    <hr />
+    <div id="editor">
+      <p>把想說的話打在這裡，按下送出後就會出現在下方網頁中！</p>
+    </div>
+    <div class="button_container">
+      <button id="submit">送出</button>
+      <p>註：此網站沒有串資料庫，資料不會被記錄。</p>
+    </div>
+    <h2>我的文章</h2>
+    <hr />
+    <div id="my_post_container"></div>
+    <script src="dist/bundle.js"></script>
+    <script>
+      ClassicEditor.create(document.querySelector('#editor'))
+        .then((editor) => {
+          console.log(editor);
+          window.editor = editor;
+          console.log(editor.sourceElement.innerHTML);
+        })
+        .catch((error) => {
+          console.error('There was a problem initializing the editor.', error);
+        });
+      let str = '';
+      document.getElementById('editor').addEventListener('click', function (e) {
+        console.log(e);
+      });
+      var stringToHTML = function (str) {
+        var dom = document.createElement('div');
+        dom.innerHTML = str;
+        return dom;
+      };
+
+      let myPostNumber = 0;
+      document.querySelector('#submit').addEventListener('click', () => {
+        const editorData = editor.getData();
+        console.log(editorData);
+        var dom = document.createElement('div');
+        dom.innerHTML = editorData;
+        // dom.className = 'my_post';
+        // dom.id = 'myPost' + myPostNumber;
+        var d = new Date();
+        let thisPost = `
+        <div class="my_post" id="myPost${myPostNumber}">
+          <p class="my_post_time">貼文時間：${d.toLocaleString()}</p>
+          <hr/>
+        </div>`;
+        document.getElementById('my_post_container').innerHTML += thisPost;
+        document.getElementById('myPost' + myPostNumber).append(dom);
+        myPostNumber++;
+      });
+    </script>
+  </body>
+</html>

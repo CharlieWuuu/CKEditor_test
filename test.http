@@ -1,0 +1,13 @@
+npm install --save css-loader@5
+npm install --save postcss-loader@4
+npm install --save raw-loader@4
+npm install --save style-loader@2
+npm install --save webpack@5
+npm install --save webpack-cli@4
+
+npm install --save @ckeditor/ckeditor5-dev-utils
+npm install --save @ckeditor/ckeditor5-editor-classic
+npm install --save @ckeditor/ckeditor5-essentials
+npm install --save @ckeditor/ckeditor5-paragraph
+npm install --save @ckeditor/ckeditor5-basic-styles
+npm install --save @ckeditor/ckeditor5-theme-lark
