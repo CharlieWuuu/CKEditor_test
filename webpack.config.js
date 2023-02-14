@@ -1,3 +1,5 @@
+// webpack.config.js
+
 'use strict';
 
 const path = require('path');
@@ -9,8 +11,6 @@ module.exports = {
 
   // https://webpack.js.org/configuration/output/
   output: {
-    library: 'ClassicEditor',
-    libraryExport: 'default',
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },

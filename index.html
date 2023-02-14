@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>留言板 -CKEditor 範例-</title>
+
     <style>
       html {
         background-color: rgb(230, 246, 255);
@@ -62,7 +63,7 @@
         width: calc(100% - 20px);
         background-color: rgb(230, 246, 255);
         border-radius: 8px;
-        box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
         padding: 10px;
       }
 
@@ -80,7 +81,7 @@
     <h1>留言板</h1>
     <hr />
     <div id="editor">
-      <p>把想說的話打在這裡，按下送出後就會出現在下方網頁中！</p>
+      <p>輸入您的文章標題</p>
     </div>
     <div class="button_container">
       <button id="submit">送出</button>
@@ -91,15 +92,15 @@
     <div id="my_post_container"></div>
     <script src="dist/bundle.js"></script>
     <script>
-      ClassicEditor.create(document.querySelector('#editor'))
-        .then((editor) => {
-          console.log(editor);
-          window.editor = editor;
-          console.log(editor.sourceElement.innerHTML);
-        })
-        .catch((error) => {
-          console.error('There was a problem initializing the editor.', error);
-        });
+      // ClassicEditor.create(document.querySelector('#editor'))
+      //   .then((editor) => {
+      //     console.log(editor);
+      //     window.editor = editor;
+      //     console.log(editor.sourceElement.innerHTML);
+      //   })
+      //   .catch((error) => {
+      //     console.error('There was a problem initializing the editor.', error);
+      //   });
       let str = '';
       document.getElementById('editor').addEventListener('click', function (e) {
         console.log(e);
