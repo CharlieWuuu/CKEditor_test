@@ -94,6 +94,9 @@ import SelectAll from '@ckeditor/ckeditor5-select-all/src/selectall';
 // 表格
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+import TableColumnResize from '@ckeditor/ckeditor5-table/src/tablecolumnresize';
 
 // 文字對齊
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
@@ -151,6 +154,9 @@ ClassicEditor.create(document.querySelector('#editor'), {
     SelectAll,
     Table,
     TableToolbar,
+    TableProperties,
+    TableCellProperties,
+    TableColumnResize,
     Alignment,
     Undo,
   ],
@@ -283,7 +289,13 @@ ClassicEditor.create(document.querySelector('#editor'), {
     ],
   },
   table: {
-    contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
+    contentToolbar: [
+      'tableColumn',
+      'tableRow',
+      'mergeTableCells',
+      'tableProperties',
+      'tableCellProperties',
+    ],
   },
   language: 'zh',
 })

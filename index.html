@@ -30,12 +30,6 @@
         margin: 0;
         width: 100%;
       }
-      .ck-editor {
-        width: 100% !important;
-      }
-      .ck-editor__editable {
-        height: 200px !important;
-      }
 
       .button_container {
         display: flex;
@@ -76,6 +70,7 @@
         border: 1px solid rgba(0, 0, 0, 0.2);
       }
     </style>
+    <link rel="stylesheet" href="content-styles.css" />
   </head>
   <body>
     <h1>留言板</h1>
@@ -121,7 +116,7 @@
         // dom.id = 'myPost' + myPostNumber;
         var d = new Date();
         let thisPost = `
-        <div class="my_post" id="myPost${myPostNumber}">
+        <div class="my_post ck-content" id="myPost${myPostNumber}">
           <p class="my_post_time">貼文時間：${d.toLocaleString()}</p>
           <hr/>
         </div>`;
